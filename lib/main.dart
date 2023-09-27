@@ -5,8 +5,23 @@ var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 96, 59, 181),
   );
 
+  var kDarkColorScheme = ColorScheme.fromSeed(
+    seedColor: const Color.fromARGB(255, 5, 99, 125),
+    brightness: Brightness.dark,
+    );
+
 void main() {
   runApp(MaterialApp(
+    darkTheme: ThemeData.dark().copyWith(useMaterial3: true,
+    colorScheme: kDarkColorScheme,
+    cardTheme: const CardTheme().copyWith(
+        color: kDarkColorScheme.secondaryContainer,
+        margin: const EdgeInsets.symmetric(
+          horizontal: 16,
+           vertical: 8,
+           ),
+      ),
+    ),
     theme: ThemeData().copyWith(
       useMaterial3: true,
       colorScheme:  kColorScheme,
@@ -15,7 +30,7 @@ void main() {
         foregroundColor: kColorScheme.primaryContainer,
       ),
       cardTheme: const CardTheme().copyWith(
-        color: kColorScheme.secondaryContainer,
+        color: kColorScheme.secondaryContainer, 
         margin: const EdgeInsets.symmetric(
           horizontal: 16,
            vertical: 8,
